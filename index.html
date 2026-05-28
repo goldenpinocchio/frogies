@@ -482,32 +482,55 @@
 
       .frog .body {
         position: absolute;
-        left: 58px;
+        left: 60px;
         top: 44px;
-        width: 154px;
-        height: 96px;
-        border-radius: 58px 66px 34px 46px;
-        background: linear-gradient(180deg, #98ce58 0%, #85b946 100%);
+        width: 158px;
+        height: 100px;
+        border-radius: 60px 72px 40px 48px;
+        background: linear-gradient(180deg, #9cd35b 0%, #86bb46 100%);
         box-shadow: inset -10px -12px 0 rgba(37, 76, 27, 0.06);
       }
 
       .frog .head {
         position: absolute;
-        left: 28px;
-        top: 20px;
-        width: 126px;
-        height: 80px;
-        border-radius: 52px 58px 34px 36px;
-        background: linear-gradient(180deg, #a3d367 0%, #91c452 100%);
+        left: 26px;
+        top: 18px;
+        width: 132px;
+        height: 84px;
+        border-radius: 52px 62px 28px 34px;
+        background: linear-gradient(180deg, #a6db68 0%, #92c453 100%);
         box-shadow: inset -8px -6px 0 rgba(37, 76, 27, 0.05);
+      }
+
+      .frog .head::before {
+        content: "";
+        position: absolute;
+        right: -20px;
+        top: 20px;
+        width: 42px;
+        height: 28px;
+        border-radius: 0 30px 30px 0;
+        background: linear-gradient(180deg, #a6db68 0%, #92c453 100%);
+      }
+
+      .frog .head::after {
+        content: "";
+        position: absolute;
+        right: 2px;
+        top: 35px;
+        width: 7px;
+        height: 5px;
+        border-radius: 50%;
+        background: rgba(20, 48, 51, 0.58);
+        box-shadow: 12px -3px 0 rgba(20, 48, 51, 0.3);
       }
 
       .frog .eye {
         position: absolute;
-        left: 82px;
-        top: 30px;
-        width: 28px;
-        height: 22px;
+        left: 74px;
+        top: 22px;
+        width: 34px;
+        height: 26px;
         border-radius: 50%;
         background: #efe3bc;
         box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
@@ -516,10 +539,10 @@
       .frog .eye::after {
         content: "";
         position: absolute;
-        left: 11px;
-        top: 6px;
-        width: 9px;
-        height: 8px;
+        left: 12px;
+        top: 7px;
+        width: 10px;
+        height: 9px;
         border-radius: 50%;
         background: #171112;
       }
@@ -527,63 +550,63 @@
       .frog .mouth {
         position: absolute;
         left: 44px;
-        top: 68px;
-        width: 20px;
-        height: 8px;
+        top: 62px;
+        width: 34px;
+        height: 10px;
         border-bottom: 2px solid rgba(20, 48, 51, 0.72);
-        border-radius: 0 0 14px 14px;
+        border-radius: 0 0 18px 18px;
       }
 
       .frog .belly {
         position: absolute;
         left: 86px;
-        top: 70px;
-        width: 70px;
-        height: 68px;
-        border-radius: 32px 32px 28px 28px;
+        top: 68px;
+        width: 74px;
+        height: 72px;
+        border-radius: 34px 34px 30px 30px;
         background: linear-gradient(180deg, #f1e6cd 0%, #fff7e8 100%);
         clip-path: polygon(14% 0, 84% 0, 100% 40%, 84% 100%, 18% 100%, 0 46%);
       }
 
       .frog .leg {
         position: absolute;
-        background: linear-gradient(180deg, #90c652, #7cab42);
+        background: linear-gradient(180deg, #8fc451, #7da842);
       }
 
       .frog .leg.back {
-        right: 18px;
-        bottom: 20px;
-        width: 70px;
-        height: 56px;
-        border-radius: 50% 34% 44% 50%;
-        transform: rotate(-24deg);
+        right: 12px;
+        bottom: 16px;
+        width: 78px;
+        height: 62px;
+        border-radius: 48% 38% 46% 54%;
+        transform: rotate(-26deg);
       }
 
       .frog .leg.front {
         left: 8px;
-        bottom: 38px;
-        width: 78px;
-        height: 34px;
-        border-radius: 20px 20px 18px 18px;
-        transform: rotate(8deg);
+        bottom: 34px;
+        width: 86px;
+        height: 40px;
+        border-radius: 22px 24px 20px 20px;
+        transform: rotate(12deg);
       }
 
       .frog .foot {
         position: absolute;
-        width: 56px;
+        width: 60px;
         height: 16px;
         left: 0;
         bottom: 10px;
         border-radius: 999px;
-        background: linear-gradient(180deg, #7cab42, #6f9b3f);
+        background: linear-gradient(180deg, #7da842, #71993d);
         clip-path: polygon(0 50%, 100% 0, 100% 100%);
       }
 
       .frog .tongue {
         position: absolute;
         left: 10px;
-        top: 74px;
-        width: 136px;
+        top: 66px;
+        width: 132px;
         height: 6px;
         border-radius: 999px;
         background: linear-gradient(90deg, #c98c9b, #e1a6b2, #edb1b7);
@@ -834,7 +857,7 @@
           <h1>Frogies</h1>
           <p class="lede">
             An art frog collection on Bitcoin — deterministic, block-data driven, and built to feel more like a vintage
-            poster than a mascot. Natcats-style logic stays intact, but the visual language shifts to a calmer,
+            poster or lo-fi pond study. Natcats-style logic stays intact, but the visual language shifts to a calmer,
             cooler mid-century modern composition.
           </p>
           <div class="cta-row">
@@ -851,8 +874,8 @@
               <div class="mini">block data decides rarity</div>
             </div>
             <div class="meta">
-              <strong>No mascot</strong>
-              <div class="mini">more art object, less character brand</div>
+              <strong>Art-led</strong>
+              <div class="mini">poster first, character second</div>
             </div>
           </div>
         </section>
@@ -913,7 +936,7 @@ CORE STYLE
 - Mid-century modern
 - Flat vector illustration
 - Calmer, artsy, editorial composition
-- No mascot
+- Art-led
 - Deterministic from Bitcoin block data
 
 SUPPLY
@@ -1024,7 +1047,7 @@ NOTES
           <div class="card">
             <h3>Night Pond</h3>
             <p>
-              A darker take for special moods and rarer variants. Good for metallic or high-contrast treatments without bringing back the cute mascot energy.
+              A darker take for special moods and rarer variants. Good for metallic or high-contrast treatments without bringing back the cute character energy.
             </p>
             <div class="pill-row">
               <span class="pill"><a href="./kawaii-night/">Open demo</a></span>
