@@ -279,6 +279,7 @@
           linear-gradient(180deg, rgba(10, 58, 59, 0.12), rgba(10, 58, 59, 0.22)),
           radial-gradient(circle at 20% 22%, rgba(231, 175, 143, 0.18), transparent 19%),
           linear-gradient(180deg, #0f4a4b 0%, #17484a 100%);
+        overflow: hidden;
       }
 
       .art-panel::before {
@@ -604,13 +605,13 @@
 
       .frog .tongue {
         position: absolute;
-        left: 10px;
-        top: 66px;
-        width: 132px;
-        height: 6px;
+        left: 18px;
+        top: 72px;
+        width: 108px;
+        height: 4px;
         border-radius: 999px;
-        background: linear-gradient(90deg, #c98c9b, #e1a6b2, #edb1b7);
-        transform: rotate(-12deg);
+        background: linear-gradient(90deg, #c88a98, #dca0aa, #e7b2bb);
+        transform: rotate(-10deg);
         transform-origin: left center;
       }
 
@@ -667,29 +668,493 @@
 
       .leves {
         position: absolute;
-        right: 22px;
-        bottom: 24px;
-        width: 72px;
-        height: 72px;
+        right: 38px;
+        bottom: 30px;
+        width: 52px;
+        height: 52px;
         border-radius: 50%;
-        background: #eeb3b0;
-        clip-path: ellipse(40% 48% at 50% 50%);
-        box-shadow: 0 0 0 4px rgba(238, 179, 176, 0.12);
+        background: linear-gradient(180deg, #8bb36f, #769d57);
+        clip-path: ellipse(40% 46% at 50% 50%);
+        box-shadow: 0 0 0 4px rgba(139, 179, 111, 0.12);
       }
 
       .leves::before,
       .leves::after {
         content: "";
         position: absolute;
-        inset: 12px 14px 16px;
+        inset: 10px 12px 12px;
         border-radius: 50%;
-        border: 2px solid rgba(223, 240, 242, 0.28);
-        border-color: rgba(223, 240, 242, 0.28) transparent transparent transparent;
+        border: 2px solid rgba(223, 240, 242, 0.22);
+        border-color: rgba(223, 240, 242, 0.22) transparent transparent transparent;
       }
 
       .leves::after {
-        inset: 20px 22px 24px;
+        inset: 18px 20px 20px;
       }
+
+      .art-board {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 6px;
+        width: 100%;
+        padding: 8px;
+        background: rgba(247, 238, 221, 0.42);
+      }
+
+      .art-tile {
+        position: relative;
+        aspect-ratio: 1;
+        overflow: hidden;
+        border-radius: 0;
+        background: linear-gradient(180deg, var(--scene-top), var(--scene-bottom));
+        box-shadow: none;
+      }
+
+      .art-tile::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 34%);
+        pointer-events: none;
+      }
+
+      .art-tile.blue { --scene-top: #2a6faa; --scene-bottom: #1f5e90; }
+      .art-tile.teal { --scene-top: #0d7972; --scene-bottom: #09615f; }
+      .art-tile.violet { --scene-top: #5c57a0; --scene-bottom: #4f4a93; }
+      .art-tile.night { --scene-top: #243a64; --scene-bottom: #132a4c; }
+      .art-tile.jade { --scene-top: #0a7364; --scene-bottom: #095b52; }
+      .art-tile.aqua { --scene-top: #07809a; --scene-bottom: #0a6884; }
+
+      .scene {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+
+      .scene::before {
+        content: "";
+        position: absolute;
+        inset: -6% -10% auto auto;
+        width: 38%;
+        height: 50%;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(238, 214, 185, 0.14), transparent 70%);
+      }
+
+      .scene-lotus {
+        position: absolute;
+        left: var(--lotus-left, 24px);
+        top: var(--lotus-top, 20px);
+        width: 76px;
+        height: 116px;
+      }
+
+      .scene-lotus .stem {
+        position: absolute;
+        left: 50%;
+        top: 34px;
+        translate: -50% 0;
+        width: 5px;
+        height: 84px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, #89b46e, #5c8c56);
+      }
+
+      .scene-lotus .flower {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        translate: -50% 0;
+        width: 76px;
+        height: 58px;
+      }
+
+      .scene-lotus .petal {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 16px;
+        height: 36px;
+        border-radius: 999px 999px 12px 12px;
+        background: linear-gradient(180deg, #f8d9d7, #e9bcbc);
+        transform-origin: center bottom;
+      }
+
+      .scene-lotus .petal:nth-child(1) { transform: translate(-50%, -100%) rotate(-48deg); }
+      .scene-lotus .petal:nth-child(2) { transform: translate(-50%, -100%) rotate(-26deg); }
+      .scene-lotus .petal:nth-child(3) { transform: translate(-50%, -100%) rotate(-8deg); }
+      .scene-lotus .petal:nth-child(4) { transform: translate(-50%, -100%) rotate(8deg); }
+      .scene-lotus .petal:nth-child(5) { transform: translate(-50%, -100%) rotate(26deg); }
+      .scene-lotus .petal:nth-child(6) { transform: translate(-50%, -100%) rotate(48deg); }
+
+      .scene-lotus .core {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        translate: -50% -42%;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #f3dfbf;
+      }
+
+      .scene-ripple {
+        position: absolute;
+        border-radius: 50%;
+        border: 2px solid rgba(214, 236, 240, 0.34);
+        border-color: rgba(214, 236, 240, 0.34) transparent transparent transparent;
+      }
+
+      .scene-ripple.left {
+        left: var(--ripple-left, 32px);
+        top: var(--ripple-top, 120px);
+        width: 34px;
+        height: 18px;
+        transform: rotate(-18deg);
+      }
+
+      .scene-ripple.left::before,
+      .scene-ripple.left::after,
+      .scene-ripple.bud::before,
+      .scene-ripple.bud::after {
+        content: "";
+        position: absolute;
+        inset: 6px;
+        border-radius: 50%;
+        border: 2px solid rgba(214, 236, 240, 0.26);
+        border-color: rgba(214, 236, 240, 0.26) transparent transparent transparent;
+      }
+
+      .scene-ripple.left::after,
+      .scene-ripple.bud::after {
+        inset: 12px;
+      }
+
+      .scene-ripple.bud {
+        right: var(--bud-ripple-right, 34px);
+        top: var(--bud-ripple-top, 164px);
+        width: 38px;
+        height: 20px;
+      }
+
+      .scene-bud {
+        position: absolute;
+        right: var(--bud-right, 38px);
+        top: var(--bud-top, 122px);
+        width: 26px;
+        height: 34px;
+        border-radius: 50% 50% 46% 46%;
+        background: linear-gradient(180deg, #f7b7be, #e69aa8);
+        box-shadow: inset -2px -4px 0 rgba(255, 255, 255, 0.18);
+      }
+
+      .scene-bud::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: -5px;
+        translate: -50% 0;
+        width: 12px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .scene-pad {
+        position: absolute;
+        border-radius: 50%;
+        background: linear-gradient(180deg, #86b95d, #6ea246);
+        box-shadow: inset 0 -10px 0 rgba(20, 48, 51, 0.08), 0 16px 22px rgba(3, 18, 18, 0.16);
+      }
+
+      .scene-pad.main {
+        left: var(--pad-left, 18px);
+        top: var(--pad-top, 96px);
+        width: var(--pad-width, 242px);
+        height: var(--pad-height, 132px);
+        transform: rotate(var(--pad-rotate, 2deg));
+      }
+
+      .scene-pad.main::before {
+        content: "";
+        position: absolute;
+        right: -2px;
+        top: 26px;
+        width: 58px;
+        height: 24px;
+        background: inherit;
+        clip-path: polygon(0 50%, 100% 0, 100% 100%);
+      }
+
+      .scene-pad.small-left,
+      .scene-pad.small-right {
+        width: 126px;
+        height: 64px;
+      }
+
+      .scene-pad.small-left {
+        left: 12px;
+        bottom: 20px;
+        transform: rotate(-2deg);
+      }
+
+      .scene-pad.small-left::before,
+      .scene-pad.small-right::before {
+        content: "";
+        position: absolute;
+        right: -2px;
+        top: 22px;
+        width: 42px;
+        height: 18px;
+        background: inherit;
+        clip-path: polygon(0 50%, 100% 0, 100% 100%);
+      }
+
+      .scene-pad.small-right {
+        right: 12px;
+        bottom: 16px;
+        transform: rotate(2deg);
+      }
+
+      .scene-frog {
+        position: absolute;
+        left: var(--frog-left, 126px);
+        top: var(--frog-top, 72px);
+        width: 128px;
+        height: 118px;
+      }
+
+      .scene-frog .body {
+        position: absolute;
+        left: 34px;
+        top: 10px;
+        width: 84px;
+        height: 86px;
+        border-radius: 54px 50px 32px 38px;
+        background: linear-gradient(180deg, #8fd04e, #74b13d);
+        box-shadow: inset -8px -10px 0 rgba(22, 61, 25, 0.08);
+      }
+
+      .scene-frog .head {
+        position: absolute;
+        left: 10px;
+        top: 4px;
+        width: 82px;
+        height: 70px;
+        border-radius: 50px 52px 30px 34px;
+        background: linear-gradient(180deg, #98d857, #7dbb40);
+      }
+
+      .scene-frog .head::before {
+        content: "";
+        position: absolute;
+        right: -14px;
+        top: 16px;
+        width: 32px;
+        height: 24px;
+        border-radius: 0 26px 26px 0;
+        background: linear-gradient(180deg, #98d857, #7dbb40);
+      }
+
+      .scene-frog .eye {
+        position: absolute;
+        left: 48px;
+        top: 18px;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: #f3de9d;
+        box-shadow: inset 0 0 0 1px rgba(15, 19, 17, 0.08);
+      }
+
+      .scene-frog .eye::after {
+        content: "";
+        position: absolute;
+        left: 10px;
+        top: 7px;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: #191615;
+      }
+
+      .scene-frog .mouth {
+        position: absolute;
+        left: 18px;
+        top: 46px;
+        width: 28px;
+        height: 10px;
+        border-bottom: 2px solid rgba(20, 48, 51, 0.72);
+        border-radius: 0 0 18px 18px;
+      }
+
+      .scene-frog .tongue {
+        position: absolute;
+        left: -2px;
+        top: 46px;
+        width: 74px;
+        height: 6px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #d58e9c, #ebb0ba, #f2c3c8);
+        transform: rotate(-15deg);
+        transform-origin: left center;
+      }
+
+      .scene-frog .belly {
+        position: absolute;
+        left: 42px;
+        top: 34px;
+        width: 58px;
+        height: 72px;
+        border-radius: 30px 30px 26px 26px;
+        background: linear-gradient(180deg, #f4ecd9, #fff8ea);
+        clip-path: polygon(14% 0, 84% 0, 100% 38%, 82% 100%, 18% 100%, 0 44%);
+      }
+
+      .scene-frog .leg {
+        position: absolute;
+        background: linear-gradient(180deg, #7bb244, #689939);
+      }
+
+      .scene-frog .leg.back {
+        right: 2px;
+        bottom: 6px;
+        width: 58px;
+        height: 52px;
+        border-radius: 48% 38% 46% 54%;
+        transform: rotate(-24deg);
+      }
+
+      .scene-frog .leg.front {
+        left: 12px;
+        bottom: 20px;
+        width: 58px;
+        height: 30px;
+        border-radius: 22px 24px 20px 20px;
+        transform: rotate(14deg);
+      }
+
+      .scene-frog .foot {
+        position: absolute;
+        left: -4px;
+        bottom: 7px;
+        width: 42px;
+        height: 14px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, #689939, #5e8732);
+        clip-path: polygon(0 50%, 100% 0, 100% 100%);
+      }
+
+      .scene-crown {
+        position: absolute;
+        left: 66px;
+        top: -6px;
+        width: 34px;
+        height: 28px;
+        background: linear-gradient(180deg, #f5ca51, #ecb935);
+        clip-path: polygon(0 100%, 12% 22%, 28% 46%, 50% 0, 72% 46%, 88% 22%, 100% 100%);
+        filter: drop-shadow(0 4px 0 rgba(20, 48, 51, 0.08));
+      }
+
+      .scene-coins {
+        position: absolute;
+        left: var(--coins-left, 46px);
+        top: var(--coins-top, 166px);
+        width: 94px;
+        height: 56px;
+      }
+
+      .scene-coin {
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: linear-gradient(180deg, #ffd86a, #d7a52d);
+        box-shadow: inset 0 0 0 2px rgba(251, 235, 164, 0.45), 0 4px 6px rgba(3, 18, 18, 0.12);
+      }
+
+      .scene-coin::before {
+        content: "";
+        position: absolute;
+        inset: 5px;
+        border-radius: 50%;
+        border: 1px solid rgba(107, 75, 15, 0.25);
+      }
+
+      .scene-coin.c1 { left: 0; bottom: 2px; }
+      .scene-coin.c2 { left: 16px; bottom: 16px; }
+      .scene-coin.c3 { left: 32px; bottom: 6px; }
+      .scene-coin.c4 { left: 48px; bottom: 18px; }
+      .scene-coin.c5 { left: 64px; bottom: 8px; }
+      .scene-coin.c6 { left: 10px; bottom: 28px; }
+
+      .scene-fly {
+        position: absolute;
+        left: var(--fly-left, 102px);
+        top: var(--fly-top, 96px);
+        width: 30px;
+        height: 24px;
+      }
+
+      .scene-fly::before,
+      .scene-fly::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 16px;
+        height: 12px;
+        border-radius: 12px 12px 50% 50%;
+        background: rgba(230, 240, 241, 0.76);
+        box-shadow: inset 0 -2px 0 rgba(32, 34, 38, 0.12);
+      }
+
+      .scene-fly::before { left: 0; transform: rotate(-26deg); }
+      .scene-fly::after { right: 0; transform: rotate(22deg); }
+
+      .scene-fly .body {
+        position: absolute;
+        left: 10px;
+        top: 8px;
+        width: 10px;
+        height: 9px;
+        border-radius: 50%;
+        background: #15171a;
+      }
+
+      .scene-fly .eye {
+        position: absolute;
+        left: 8px;
+        top: 8px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #d36f8a;
+      }
+
+      .scene-moon {
+        position: absolute;
+        right: var(--moon-right, 28px);
+        top: var(--moon-top, 18px);
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: #f7e4a6;
+        clip-path: ellipse(40% 40% at 50% 50%);
+      }
+
+      .scene-star {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: rgba(255, 243, 214, 0.9);
+      }
+
+      .scene-star.one { left: 22px; top: 36px; }
+      .scene-star.two { left: 68px; top: 26px; }
+      .scene-star.three { right: 62px; top: 44px; }
 
       .section {
         margin-top: 20px;
@@ -811,6 +1276,10 @@
         .art-panel {
           min-height: 410px;
         }
+
+        .art-board {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
       }
 
       @media (max-width: 640px) {
@@ -831,6 +1300,10 @@
 
         .art-panel {
           min-height: 360px;
+        }
+
+        .art-board {
+          grid-template-columns: 1fr;
         }
 
         h1 {
@@ -856,9 +1329,8 @@
           <div class="kicker">Mid-century modern / flat vector / artsy pond energy</div>
           <h1>Frogies</h1>
           <p class="lede">
-            An art frog collection on Bitcoin — deterministic, block-data driven, and built to feel more like a vintage
-            poster or lo-fi pond study. Natcats-style logic stays intact, but the visual language shifts to a calmer,
-            cooler mid-century modern composition.
+            Frogies is a pond-first Bitcoin collection with a single expressive frog, calm lo-fi color, and a trait system
+            that can grow into little scene details like lotus blooms, reeds, coins, weather, and other quiet swamp extras.
           </p>
           <div class="cta-row">
             <a class="btn primary" href="#traits">Copy trait sheet</a>
@@ -880,20 +1352,8 @@
           </div>
         </section>
 
-        <section class="panel art-panel" aria-label="Mid-century frog pond illustration">
+        <section class="panel art-panel" aria-label="Frogies hero illustration">
           <div class="pond">
-            <div class="lotus">
-              <div class="flower">
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="core"></div>
-              </div>
-              <div class="stem"></div>
-            </div>
             <div class="ripples"></div>
             <div class="ring-left"></div>
             <div class="ring-right"></div>
@@ -925,19 +1385,12 @@
           <div>
             <h2>Copy / paste trait sheet</h2>
             <p class="sub">
-              The trait families stay deterministic and copy-friendly. I kept the counts intact, but changed the framing to fit the new art direction.
+              Frogies is being shaped as a calm, art-first pond collection: one frog, one scene, and a trait system that can expand cleanly into small visual details.
             </p>
           </div>
           <button class="copy-btn" id="copyBtn">Copy traits</button>
         </div>
         <pre id="traitsBlock">FROGIES TRAITS (draft counts)
-
-CORE STYLE
-- Mid-century modern
-- Flat vector illustration
-- Calmer, artsy, editorial composition
-- Art-led
-- Deterministic from Bitcoin block data
 
 SUPPLY
 - 8,064 total
@@ -1002,18 +1455,12 @@ BACKGROUND / AURA
 - Bitcoin orange glow — 640
 - neon vapor — 256
 
-RARITY DIRECTION
-- Common = soft greens, quiet faces, simple accessories
-- Uncommon = deeper color shifts, a little more attitude
-- Rare = gold eyes, crowns, stronger glow, more dramatic props
-- Ultra-rare = gold body, diamond body, laser eyes, top-tier aura effects
-
 NOTES
-- The block data should decide which traits appear
-- Rare traits should come from rarer deterministic patterns
-- Gold / diamond should stay much less common than green bodies
-- Laser eyes should be special, not frequent
-- The whole collection should still feel like art, even at the rare end</pre>
+- Frogies is a calm pond collection with a single hero frog per NFT
+- Bitcoin block data still drives the reveal, but the art direction stays Frogies-first
+- Traits should feel like clean, readable scene pieces rather than noisy add-ons
+- Lotus blooms, reeds, petals, and extra pond shapes can be treated as future overlay traits
+- Keep the whole collection cute, quiet, and a little strange in a good way</pre>
       </section>
 
       <section class="panel section" id="pocs">
@@ -1061,15 +1508,15 @@ NOTES
       <section class="panel section">
         <h2>Process notes</h2>
         <p class="sub">
-          Frogies keeps the Natcats spirit: Bitcoin block data decides the outcome, while the trait set stays curated and easy to reason about. The website itself now follows the same art direction — cooler, more sculptural, and less playful-cartoon.
+          Frogies keeps the reveal logic simple: Bitcoin block data still decides the outcome, but the homepage is framed as a pond art project first.
         </p>
         <div class="pill-row">
           <span class="pill">Bitcoin block data</span>
-          <span class="pill">deterministic rarity</span>
-          <span class="pill">art frog collection</span>
+          <span class="pill">single hero frog</span>
+          <span class="pill">pond overlays</span>
           <span class="pill">mid-century modern</span>
           <span class="pill">8,064 supply</span>
-          <span class="pill">nat.fun launch flow</span>
+          <span class="pill">launch page later</span>
         </div>
       </section>
 
