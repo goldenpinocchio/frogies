@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frogies — Kawaii Night POC</title>
+  <style>
+    :root{
+      --bg:#151327; --bg2:#221f3a; --panel:#1d1a33cc; --ink:#f6f3ff; --muted:#aca6d8;
+      --mint:#aef4d1; --sky:#a7d7ff; --lav:#cfbfff; --peach:#ffcbb8; --gold:#ffc94d;
+      --line:rgba(255,255,255,.10); --shadow:0 18px 60px rgba(0,0,0,.32); --radius:24px;
+    }
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);
+      background:
+      radial-gradient(circle at 20% 18%, rgba(255,255,255,.14) 0 1px, transparent 1px 100%),
+      radial-gradient(circle at 80% 14%, rgba(255,255,255,.16) 0 1px, transparent 1px 100%),
+      radial-gradient(circle at 60% 20%, rgba(255,255,255,.12) 0 1px, transparent 1px 100%),
+      linear-gradient(180deg,var(--bg),var(--bg2)); min-height:100vh;}
+    .wrap{max-width:1240px;margin:0 auto;padding:28px 20px 40px}
+    .mast{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:stretch}
+    .panel{background:var(--panel);backdrop-filter:blur(18px);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:var(--radius)}
+    .title{padding:26px 26px 18px;position:relative;overflow:hidden}
+    .title:before{content:'';position:absolute;inset:-30% auto auto -10%;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.2),transparent 70%);filter:blur(12px)}
+    .brand{display:flex;gap:14px;align-items:center;position:relative}
+    .mark{width:58px;height:58px;border-radius:19px;background:linear-gradient(135deg,#baf7dd,#fff0b4);display:grid;place-items:center;font-size:30px;box-shadow:var(--shadow)}
+    h1{margin:0;font-size:clamp(2.2rem,4vw,4.4rem);line-height:.9;letter-spacing:-.05em}
+    .eyebrow{margin-top:8px;color:#d7d1ff;font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.8rem}
+    .lead{margin:16px 0 0;max-width:62ch;color:var(--muted);font-size:1.02rem;position:relative}
+    .controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .btn{border:1px solid var(--line);background:#ffffff12;color:var(--ink);padding:10px 14px;border-radius:999px;font-weight:800;cursor:pointer}
+    .btn.active{background:linear-gradient(135deg,#fff,#cfe9ff);color:#1d1733;border-color:transparent}
+    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:20px}
+    .stat{background:#ffffff0d;border:1px solid var(--line);border-radius:20px;padding:14px}
+    .stat b{display:block;font-size:1.15rem;margin-bottom:4px}.stat span{color:var(--muted);font-size:.9rem}
+    .hero{padding:18px;display:grid;grid-template-columns:1fr .92fr;gap:16px;align-items:stretch}
+    .stage{min-height:360px;border-radius:22px;background:linear-gradient(180deg,#ffffff12,#ffffff08);display:grid;place-items:center;position:relative;overflow:hidden;border:1px solid var(--line)}
+    .moon{position:absolute;top:18px;right:20px;width:72px;height:72px;border-radius:50%;background:radial-gradient(circle at 36% 34%, #fff 0 35%, #fff0 36%), radial-gradient(circle,#fff8, #fff0 70%);box-shadow:0 0 50px rgba(255,255,255,.18)}
+    .pond{position:absolute;bottom:-34px;left:-5%;right:-5%;height:120px;background:radial-gradient(circle at 50% 0%, rgba(255,255,255,.18), transparent 60%), linear-gradient(180deg,#1dd1c5 0%, #0b8c9f 100%);filter:blur(.1px);border-top-left-radius:50% 30px;border-top-right-radius:50% 30px}
+    .frog{position:relative;width:270px;height:220px;filter:drop-shadow(0 16px 32px rgba(0,0,0,.35))}
+    .frog .head{position:absolute;left:50%;top:30px;transform:translateX(-50%);width:210px;height:160px;border-radius:48% 48% 45% 45%;background:var(--body,#aef4d1);box-shadow:inset 0 -12px 0 rgba(0,0,0,.05)}
+    .frog .eye{position:absolute;top:-12px;width:60px;height:60px;border-radius:50%;background:#fff;box-shadow:inset 0 -6px 0 rgba(0,0,0,.05)}
+    .frog .eye:after{content:'';position:absolute;inset:15px;background:#1b1830;border-radius:50%}
+    .frog .eye.left{left:34px}.frog .eye.right{right:34px}
+    .frog .eye.laser:before{content:'';position:absolute;left:50%;top:26px;width:190px;height:5px;transform:translateX(-6px);background:linear-gradient(90deg,transparent,#ff71d5 10%,#fce36f 48%,#87dbff 80%,transparent);filter:blur(.2px)}
+    .frog .cheek{position:absolute;top:94px;width:22px;height:12px;background:#ffbdd2;border-radius:999px;filter:blur(1px);opacity:.9}
+    .frog .cheek.l{left:39px}.frog .cheek.r{right:39px}
+    .frog .mouth{position:absolute;left:50%;top:112px;width:90px;height:40px;transform:translateX(-50%);border-bottom:7px solid #2c244c;border-radius:0 0 80px 80px}
+    .frog .body{position:absolute;left:50%;top:136px;transform:translateX(-50%);width:170px;height:90px;border-radius:50% 50% 42% 42%;background:var(--body,#aef4d1)}
+    .frog .glint{position:absolute;left:60%;top:82px;width:18px;height:18px;border-radius:50%;background:#fff7;box-shadow:0 0 0 8px #fff2}
+    .sparkle{position:absolute;font-size:20px;opacity:.9;animation:float 3.5s ease-in-out infinite}
+    .sparkle.s1{left:30px;top:40px}.sparkle.s2{right:16px;bottom:80px;animation-delay:.8s}.sparkle.s3{left:26%;bottom:34px;animation-delay:1.5s}
+    @keyframes float{50%{transform:translateY(-8px) rotate(5deg)}}
+    .card{padding:20px;display:flex;flex-direction:column;gap:12px}
+    .tagline{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{padding:7px 10px;border-radius:999px;background:#ffffff10;border:1px solid var(--line);font-size:.88rem;font-weight:800}
+    .tag.gold{background:linear-gradient(135deg,#553d00,#ffc94d);color:#1a1400;border-color:transparent}
+    .tag.diamond{background:linear-gradient(135deg,#dff6ff,#ffffff);color:#18202f;border-color:transparent}
+    .traitbar{display:flex;flex-wrap:wrap;gap:8px}
+    .trait{padding:8px 10px;border-radius:999px;background:#ffffff10;border:1px solid var(--line);font-size:.88rem;font-weight:800}
+    .catalog{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .frogcard{padding:14px;border-radius:20px;background:#fff1;border:1px solid var(--line);box-shadow:0 8px 28px rgba(0,0,0,.15);cursor:pointer;transition:.2s transform,.2s background}
+    .frogcard:hover{transform:translateY(-4px);background:#fff2}
+    .mini{height:150px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(180deg,var(--tone,#26435e),#0000);margin-bottom:10px;position:relative;overflow:hidden}
+    .mini .frog{transform:scale(.55);transform-origin:center top;--body:var(--body,#aef4d1)}
+    .mini .stamp{position:absolute;left:12px;top:12px;padding:5px 8px;border-radius:999px;background:#00000066;border:1px solid #ffffff26;font-size:.72rem;font-weight:800}
+    .mini h4{margin:4px 0 3px;font-size:1rem}.mini p{margin:0;color:var(--muted);font-size:.85rem;line-height:1.35}
+    .footer{margin-top:24px;color:var(--muted);font-size:.92rem}
+    @media (max-width:980px){.mast,.hero,.catalog{grid-template-columns:1fr 1fr}.catalog{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:700px){.mast,.hero,.catalog{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="mast">
+    <div class="panel title">
+      <div class="brand">
+        <div class="mark">🐸</div>
+        <div>
+          <h1>Frogies</h1>
+          <div class="eyebrow">Kawaii Night / the rare side of the pond</div>
+        </div>
+      </div>
+      <p class="lead">A moodier proof of concept for the same collection: pastel kawaii frogs with a nighttime glow, sparkles, and a stronger emphasis on rare traits like gold, diamond, and laser eyes.</p>
+      <div class="controls" id="filters2">
+        <button class="btn active" data-filter="all">All</button>
+        <button class="btn" data-filter="common">Common</button>
+        <button class="btn" data-filter="rare">Rare</button>
+        <button class="btn" data-filter="mythic">Mythic</button>
+      </div>
+    </div>
+    <div class="panel stats">
+      <div class="stat"><b>8,064</b><span>collection supply</span></div>
+      <div class="stat"><b>Block data</b><span>drives rarity</span></div>
+      <div class="stat"><b>Gold + Diamond</b><span>ultra-rare finishes</span></div>
+      <div class="stat"><b>Kawaii</b><span>faces stay cute</span></div>
+    </div>
+  </div>
+
+  <div class="panel hero" style="margin-top:18px">
+    <div class="stage">
+      <div class="moon"></div>
+      <div class="pond"></div>
+      <div class="sparkle s1">✦</div><div class="sparkle s2">✦</div><div class="sparkle s3">✦</div>
+      <div class="frog" id="hero2" style="--body:#baf7dd">
+        <div class="head"></div>
+        <div class="eye left laser"></div>
+        <div class="eye right laser"></div>
+        <div class="cheek l"></div><div class="cheek r"></div>
+        <div class="mouth"></div>
+        <div class="body"></div>
+        <div class="glint"></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="tagline" id="headlineTags">
+        <span class="tag gold">gold body</span>
+        <span class="tag diamond">diamond edge</span>
+        <span class="tag">laser eyes</span>
+      </div>
+      <div style="font-size:1.35rem;font-weight:900">Midnight Momo</div>
+      <div style="color:var(--muted)">A mythic Frogie with moonlit glow, sparkling accents, and a soft plush finish.</div>
+      <div class="traitbar" id="hero2Traits">
+        <span class="trait">body: gold</span>
+        <span class="trait">eyes: laser</span>
+        <span class="trait">aura: moonlit</span>
+      </div>
+      <div class="stats" style="padding:0;grid-template-columns:repeat(2,1fr)">
+        <div class="stat"><b>Common stays cute</b><span>mint / pastel / sleepy</span></div>
+        <div class="stat"><b>Rare gets shiny</b><span>gold / diamond / crowns</span></div>
+        <div class="stat"><b>Mythic gets wild</b><span>laser / aura / sparkle</span></div>
+        <div class="stat"><b>All deterministic</b><span>block-driven layers</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gridhead" style="display:flex;justify-content:space-between;align-items:end;margin:26px 4px 14px;gap:12px;flex-wrap:wrap">
+    <div>
+      <div style="color:var(--muted);text-transform:uppercase;letter-spacing:.12em;font-weight:800;font-size:.76rem">Preview set</div>
+      <h3 style="margin:4px 0 0;font-size:1.28rem">Night pond samples</h3>
+    </div>
+    <div style="color:var(--muted)">Click any card to feature it.</div>
+  </div>
+
+  <div class="catalog" id="catalog2">
+    <div class="frogcard" data-rarity="common" data-body="#baf7dd" data-name="Mori" data-traits="mint body, sleepy eyes, leaf cap">
+      <div class="mini" style="--body:#baf7dd;--tone:#264e4a"><div class="stamp">COMMON</div><div class="frog"><div class="head"></div><div class="eye left"></div><div class="eye right"></div><div class="cheek l"></div><div class="cheek r"></div><div class="mouth"></div><div class="body"></div></div></div>
+      <h4>Mori</h4><p>mint body • sleepy eyes • leaf cap</p>
+    </div>
+    <div class="frogcard" data-rarity="common" data-body="#cfbfff" data-name="Pico" data-traits="lilac body, wink, bubble">
+      <div class="mini" style="--body:#cfbfff;--tone:#483f7a"><div class="stamp">COMMON</div><div class="frog"><div class="head"></div><div class="eye left"></div><div class="eye right"></div><div class="cheek l"></div><div class="cheek r"></div><div class="mouth"></div><div class="body"></div></div></div>
+      <h4>Pico</h4><p>lilac body • one-eye wink • bubble</p>
+    </div>
+    <div class="frogcard" data-rarity="rare" data-body="#ffcbb8" data-name="Zuzu" data-traits="peach body, gold eyes, goggles">
+      <div class="mini" style="--body:#ffcbb8;--tone:#69416a"><div class="stamp">RARE</div><div class="frog"><div class="head"></div><div class="eye left"></div><div class="eye right"></div><div class="cheek l"></div><div class="cheek r"></div><div class="mouth"></div><div class="body"></div></div></div>
+      <h4>Zuzu</h4><p>peach body • gold eyes • goggles</p>
+    </div>
+    <div class="frogcard" data-rarity="rare" data-body="#e2f1ff" data-name="Nami" data-traits="diamond body, crown, rainy night">
+      <div class="mini" style="--body:#e2f1ff;--tone:#2e3e68"><div class="stamp">RARE</div><div class="frog"><div class="head"></div><div class="eye left"></div><div class="eye right"></div><div class="cheek l"></div><div class="cheek r"></div><div class="mouth"></div><div class="body"></div></div></div>
+      <h4>Nami</h4><p>diamond body • crown • rainy night</p>
+    </div>
+    <div class="frogcard" data-rarity="mythic" data-body="#ffc94d" data-name="Luna" data-traits="gold body, laser eyes, moonlit">
+      <div class="mini" style="--body:#ffc94d;--tone:#3b2d59"><div class="stamp">MYTHIC</div><div class="frog"><div class="head"></div><div class="eye left laser"></div><div class="eye right laser"></div><div class="cheek l"></div><div class="cheek r"></div><div class="mouth"></div><div class="body"></div></div></div>
+      <h4>Luna</h4><p>gold body • laser eyes • moonlit</p>
+    </div>
+    <div class="frogcard" data-rarity="mythic" data-body="#fff8e8" data-name="Astra" data-traits="diamond body, laser eyes, halo">
+      <div class="mini" style="--body:#fff8e8;--tone:#4d4f73"><div class="stamp">MYTHIC</div><div class="frog"><div class="head"></div><div class="eye left laser"></div><div class="eye right laser"></div><div class="cheek l"></div><div class="cheek r"></div><div class="mouth"></div><div class="body"></div></div></div>
+      <h4>Astra</h4><p>diamond body • laser eyes • halo</p>
+    </div>
+  </div>
+
+  <div class="footer">POC concept: darker premium presentation while keeping the frogs cute. Good for a rarer / collectible / night-market feel.</div>
+</div>
+<script>
+const filters = [...document.querySelectorAll('#filters2 .btn')];
+const items = [...document.querySelectorAll('#catalog2 .frogcard')];
+const hero = document.getElementById('hero2');
+const tags = document.getElementById('headlineTags');
+const traitbar = document.getElementById('hero2Traits');
+filters.forEach(btn=>btn.onclick = ()=>{
+  const f = btn.dataset.filter;
+  items.forEach(i=>i.style.display = (f==='all' || i.dataset.rarity===f) ? '' : 'none');
+  filters.forEach(b=>b.classList.toggle('active', b===btn));
+});
+items.forEach(item=>item.onclick = ()=>{
+  hero.style.setProperty('--body', item.dataset.body);
+  hero.innerHTML = `<div class="head"></div><div class="eye left ${item.dataset.rarity==='mythic' ? 'laser' : ''}"></div><div class="eye right ${item.dataset.rarity==='mythic' ? 'laser' : ''}"></div><div class="cheek l"></div><div class="cheek r"></div><div class="mouth"></div><div class="body"></div><div class="glint"></div>`;
+  tags.innerHTML = '';
+  traitbar.innerHTML = '';
+  const traits = item.dataset.traits.split(',').map(s=>s.trim());
+  traits.forEach(t=>traitbar.insertAdjacentHTML('beforeend', `<span class="trait">${t}</span>`));
+  if(item.dataset.rarity==='mythic') tags.insertAdjacentHTML('afterbegin', `<span class="tag gold">mythic</span>`);
+});
+</script>
+</body>
+</html>
