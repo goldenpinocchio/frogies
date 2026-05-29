@@ -6,7 +6,7 @@
     <title>Froggies — a Bitcoin-native pond collection</title>
     <meta
       name="description"
-      content="Froggies is a Bitcoin-native pond collection: one hero frog per token, deterministic block-data traits, and a calm editorial art direction built for nat.fun."
+      content="Froggies is a 4,032-supply Bitcoin-native pond collection: two fc generations, 2,016 blocks each, deterministic block-height traits, and ultra-rares reserved for Bits / hash."
     />
     <meta name="theme-color" content="#0b3637" />
     <style>
@@ -516,6 +516,33 @@
         font-weight: 600;
       }
 
+      .count-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 14px;
+      }
+      .count-chip {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 54px;
+        padding: 7px 10px;
+        border-radius: 12px;
+        border: 1px solid rgba(23, 53, 55, 0.1);
+        background: rgba(23, 53, 55, 0.05);
+        color: #173537;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+      }
+      .logic-note {
+        margin-top: 12px;
+        color: var(--ink-soft);
+        font-size: 0.9rem;
+        line-height: 1.55;
+      }
+
       .quote {
         padding: 24px;
         background:
@@ -578,8 +605,8 @@
         color: #ffffff;
         margin-bottom: 4px;
       }
-      .chip.one { top: 18px; left: 18px; }
-      .chip.two { top: 18px; right: 18px; }
+      .chip.one { top: 18px; left: 18px; max-width: 42%; }
+      .chip.two { top: 18px; right: 18px; max-width: 40%; }
       .chip.three { bottom: 18px; left: 18px; max-width: 54%; }
 
       .art-svg {
@@ -667,6 +694,7 @@
           <a class="navlink" href="#story">Story</a>
           <a class="navlink" href="#traits">Traits</a>
           <a class="navlink" href="#art">Art direction</a>
+          <a class="navlink" href="#logic">Logic</a>
           <a class="navlink" href="#launch">Launch notes</a>
           <a class="navcta" href="#art">Open the pond</a>
         </nav>
@@ -674,16 +702,16 @@
 
       <section class="hero" aria-labelledby="hero-title">
         <article class="panel hero-copy">
-          <div class="kicker">Froggies · nat.fun · block-data rarity</div>
+          <div class="kicker">Froggies · 4,032 supply · fc block logic</div>
           <h1 id="hero-title">The pond remembers the block.</h1>
           <p class="lede">
             Froggies is a Bitcoin-native pond collection built like a poster archive: one hero frog per token,
-            deterministic traits from Bitcoin block data, and a visual language that stays lo-fi, editorial, and
+            deterministic traits from a 4,032-block fc window, and a visual language that stays lo-fi, editorial, and
             unmistakably pond-first.
           </p>
           <p class="lede" style="font-style: italic; max-width: 58ch;">
-            This page is the story layer for the collection — where the mood, the rules, and the reveal logic live
-            together before the art is finalized.
+            This page is the logic layer for the collection — where the 2 × 2,016 generation split, block-height rarity
+            buckets, and ultra-rare hash rules live before the art is finalized.
           </p>
           <div class="cta-row">
             <a class="btn primary" href="#story">Read the story</a>
@@ -693,16 +721,16 @@
 
           <div class="stats" role="list" aria-label="Collection highlights">
             <div class="stat" role="listitem">
-              <strong>2,016 supply</strong>
-              <span>Small enough to feel curated, large enough for rarity to matter.</span>
+              <strong>4,032 supply</strong>
+              <span>Two fc generations of 2,016 blocks each — enough room for patterns to breathe.</span>
             </div>
             <div class="stat" role="listitem">
               <strong>One frog hero</strong>
               <span>Every mint resolves into a single readable character, not a crowded scene.</span>
             </div>
             <div class="stat" role="listitem">
-              <strong>Deterministic reveal</strong>
-              <span>Traits are chosen by block-era logic, so the system stays explainable and fair.</span>
+              <strong>Digit-bucket reveal</strong>
+              <span>Most traits resolve from block-height digits; gold and diamond stay hash-gated.</span>
             </div>
           </div>
         </article>
@@ -802,7 +830,7 @@
                 A quiet, art-directed pond world — more poster archive than mascot toy.
               </span>
             </div>
-            <div class="caption-chip">2,016 frogs · one story</div>
+            <div class="caption-chip">4,032 frogs · 2 fc generations</div>
           </div>
         </aside>
       </section>
@@ -812,8 +840,8 @@
           <div class="section-kicker">Storyline</div>
           <h2 class="section-title" id="story-title">A mint begins when the pond wakes up.</h2>
           <p class="section-lede">
-            The collection should feel like a small, poetic system: the chain decides the outcome, the pond decides the
-            mood, and the final frog feels collected rather than randomly generated.
+            The collection should feel like a small, poetic system: the fc window creates two equal generations, the
+            block height sets most visible traits, and the final frog feels collected rather than randomly generated.
           </p>
         </div>
 
@@ -830,7 +858,7 @@
             <div class="step">02 · the block arrives</div>
             <h3>The chain sets the tone.</h3>
             <p>
-              A Bitcoin block contributes the logic that picks the frog’s body, face, and supporting details. It is
+              A Bitcoin block contributes the height digits that pick the frog’s body, face, accessories, and aura. It is
               deterministic, not random noise.
             </p>
           </article>
@@ -838,8 +866,8 @@
             <div class="step">03 · the frog resolves</div>
             <h3>The character emerges in one clear read.</h3>
             <p>
-              Each Froggie should be readable at thumbnail size: a distinct silhouette, a subtle mood, and just enough
-              detail to feel like a keepable artifact.
+              Each Froggie should be readable at thumbnail size: a distinct silhouette, a subtle mood, and a rarity profile
+              that can be traced back to the source block.
             </p>
           </article>
           <article class="card story-card">
@@ -865,56 +893,99 @@
 
         <div class="trait-grid">
           <article class="card">
-            <div class="label"><strong>Body</strong><span>base read</span></div>
-            <p>Soft greens, sage, mint, pale jade, moss, and occasional warm or cool outliers that still feel pond-native.</p>
+            <div class="label"><strong>Body color</strong><span>base read</span></div>
+            <p>Soft greens, sage, mint, pale jade, moss, and occasional warm or cool outliers. Eleven body buckets sum cleanly to the full supply.</p>
+            <div class="count-list" aria-label="Body color rarity counts"><span class="count-chip">1,008</span><span class="count-chip">800</span><span class="count-chip">560</span><span class="count-chip">448</span><span class="count-chip">400</span><span class="count-chip">320</span><span class="count-chip">192</span><span class="count-chip">160</span><span class="count-chip">96</span><span class="count-chip">32</span><span class="count-chip">16</span></div>
+            <div class="logic-note">Total: 4,032 tokens.</div>
           </article>
           <article class="card">
             <div class="label"><strong>Eyes</strong><span>personality</span></div>
             <p>Calm dot eyes, sleepy lids, glossy highlights, curious wide eyes, and rare heightened states for special pieces.</p>
+            <div class="count-list" aria-label="Eyes rarity counts"><span class="count-chip">1,472</span><span class="count-chip">800</span><span class="count-chip">608</span><span class="count-chip">448</span><span class="count-chip">256</span><span class="count-chip">352</span><span class="count-chip">96</span></div>
+            <div class="logic-note">Total: 4,032 tokens.</div>
           </article>
           <article class="card">
             <div class="label"><strong>Mouth</strong><span>expression</span></div>
-            <p>Tiny smile, neutral content face, soft grin, puckered surprise, or a relaxed sleepy line — subtle first.</p>
+            <p>Tiny smile, neutral content face, soft grin, puckered surprise, and sleepy lines — subtle first, rarity second.</p>
+            <div class="count-list" aria-label="Mouth rarity counts"><span class="count-chip">1,216</span><span class="count-chip">960</span><span class="count-chip">640</span><span class="count-chip">512</span><span class="count-chip">320</span><span class="count-chip">256</span><span class="count-chip">128</span></div>
+            <div class="logic-note">Total: 4,032 tokens.</div>
           </article>
           <article class="card">
-            <div class="label"><strong>Headwear</strong><span>style accent</span></div>
-            <p>Lily crown, cap, simple headband, leaf wrap, or a small ceremonial detail. Never enough to break the silhouette.</p>
+            <div class="label"><strong>Headgear</strong><span>style accent</span></div>
+            <p>Lily crown, cap, simple headband, leaf wrap, and ceremonial details. Headgear stays silhouette-safe.</p>
+            <div class="count-list" aria-label="Headgear rarity counts"><span class="count-chip">1,152</span><span class="count-chip">768</span><span class="count-chip">576</span><span class="count-chip">512</span><span class="count-chip">384</span><span class="count-chip">320</span><span class="count-chip">256</span><span class="count-chip">64</span></div>
+            <div class="logic-note">Total: 4,032 tokens.</div>
           </article>
           <article class="card">
-            <div class="label"><strong>Accessories</strong><span>scene texture</span></div>
-            <p>Lily pads, lotus, bubbles, flies, coins, ripples, little sparkles, and pond debris — the world should feel lived in.</p>
+            <div class="label"><strong>Swamp accessories</strong><span>scene texture</span></div>
+            <p>Lily pads, lotus, bubbles, flies, coins, ripples, sparkles, and pond debris — the world feels lived in.</p>
+            <div class="count-list" aria-label="Swamp accessories rarity counts"><span class="count-chip">1,280</span><span class="count-chip">768</span><span class="count-chip">576</span><span class="count-chip">512</span><span class="count-chip">384</span><span class="count-chip">320</span><span class="count-chip">128</span><span class="count-chip">64</span></div>
+            <div class="logic-note">Total: 4,032 tokens.</div>
           </article>
           <article class="card">
-            <div class="label"><strong>Background</strong><span>mood</span></div>
-            <p>Dusk ponds, moonlit mist, soft gradients, warm paper, or poster-block skies — atmospheric, but never distracting.</p>
+            <div class="label"><strong>Background / aura</strong><span>mood</span></div>
+            <p>Dusk ponds, moonlit mist, soft gradients, warm paper, poster-block skies, and rare aura states.</p>
+            <div class="count-list" aria-label="Background / aura rarity counts"><span class="count-chip">1,280</span><span class="count-chip">768</span><span class="count-chip">640</span><span class="count-chip">512</span><span class="count-chip">384</span><span class="count-chip">320</span><span class="count-chip">128</span></div>
+            <div class="logic-note">Total: 4,032 tokens.</div>
           </article>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="logic-title">
+      <section class="section" id="logic" aria-labelledby="logic-title">
         <div class="section-head">
           <div class="section-kicker">Reveal logic</div>
-          <h2 class="section-title" id="logic-title">Deterministic, not chaotic.</h2>
+          <h2 class="section-title" id="logic-title">Two generations. 4,032 blocks. No hand-waved rarity.</h2>
           <p class="section-lede">
-            Common outcomes should map to common traits. Rare outcomes should feel rare. The launch copy should make that
-            logic understandable in a single glance.
+            The new supply works because the fc window naturally splits into 2 generations of 2,016 blocks each.
+            Most visible traits can be assigned from block-height digit buckets; the flashiest ultra-rares stay reserved
+            for Bits / hash so gold and diamond remain truly scarce.
           </p>
         </div>
 
         <div class="trait-grid">
           <article class="card">
-            <div class="label"><strong>2,016 supply</strong><span>clean story number</span></div>
+            <div class="label"><strong>Generation split</strong><span>2,016 / 2,016</span></div>
             <p>
-              A compact edition feels curated and gives the rarity system room to breathe without making the project feel
-              inflated.
+              The first digit gives a perfect fork: <strong>2xxxxx</strong> vs <strong>9xxxxx</strong>. The second digit also gives a clean split:
+              <strong>x3xxxx</strong> vs <strong>x6xxxx</strong>. Either can anchor the two fc generations.
             </p>
           </article>
           <article class="card">
-            <div class="label"><strong>Block-data driven</strong><span>collection logic</span></div>
+            <div class="label"><strong>Sweet spot digits</strong><span>trait bucketing</span></div>
             <p>
-              The chain writes the pattern. The pond writes the mood. That’s the core line: the reveal is explainable,
-              but the outcome still feels alive.
+              The fourth and fifth digits produce the cleanest rarity-sized groups, while the second and third digits
+              support broader common / uncommon splits.
             </p>
+          </article>
+          <article class="card">
+            <div class="label"><strong>Exact count palette</strong><span>natural buckets</span></div>
+            <p>
+              The window hits useful sizes directly: 1,472, 1,280, 1,216, 1,152, 960, 800, 768, 640, 608, 576, 512,
+              448, 400, 384, 352, 320, 256, 192, 160, 128, 96, and 64.
+            </p>
+          </article>
+          <article class="card">
+            <div class="label"><strong>Ultra-rare reserve</strong><span>Bits / hash</span></div>
+            <p>
+              Use block-height digits for body, eyes, mouth, headgear, swamp accessory, and background / aura. Reserve
+              Bits or hash checks for the rarest materials — especially <strong>gold</strong> and <strong>diamond</strong>.
+            </p>
+          </article>
+          <article class="card">
+            <div class="label"><strong>Example match · 1,472</strong><span>eyes candidate</span></div>
+            <p><code>pos3 in [0-5]</code> AND <code>pos4 in [0-5]</code> gives an exact 1,472-count bucket.</p>
+          </article>
+          <article class="card">
+            <div class="label"><strong>Example match · 1,280</strong><span>accessory / aura</span></div>
+            <p><code>pos2 in [0-4]</code> AND <code>pos4 in [1-8]</code> gives an exact 1,280-count bucket.</p>
+          </article>
+          <article class="card">
+            <div class="label"><strong>Example match · 64</strong><span>rare floor</span></div>
+            <p><code>pos2 in [8-9]</code> AND <code>pos5 in [4-8]</code> gives a clean 64-count rarity bucket.</p>
+          </article>
+          <article class="card">
+            <div class="label"><strong>Prefix hit · 128</strong><span>special case</span></div>
+            <p>The <code>268</code> height prefix gives exactly 128, useful for a named swamp detail or limited aura state.</p>
           </article>
         </div>
       </section>
@@ -969,14 +1040,14 @@
           Some collections are loud. Froggies should feel like a quiet thing you discover and keep returning to.
         </blockquote>
         <p>
-          Built for a calm, art-first pond collection: one frog hero per NFT, modular traits, and a reveal system that
+          Built for a calm, art-first pond collection: one frog hero per NFT, modular traits, two fc generations, and a reveal system that
           stays easy to explain. The chain decides the outcome; the art makes it lovable.
         </p>
         <div class="pill-row">
           <span class="pill">Bitcoin-native</span>
           <span class="pill">editorial pond mood</span>
           <span class="pill">deterministic traits</span>
-          <span class="pill">2,016 supply</span>
+          <span class="pill">4,032 supply</span>
         </div>
       </section>
 
