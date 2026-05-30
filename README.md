@@ -11,12 +11,10 @@ Both supply and trait generation are derived entirely from Bitcoin blockchain da
 Bitcoin adjusts mining difficulty every **2,016 blocks**, known as a *difficulty period*. Each block within a difficulty period shares the same compact difficulty value stored in the block header's `bits` field.
 
 Froggies identifies difficulty periods whose `bits` value contains the **`fc` signal**. Across Bitcoin's history, this condition occurs in two qualifying difficulty periods:
-
-| Generation | Block Range       | First Block Date (UTC) | `bits` Value |
-| ---------- | ----------------- | ---------------------- | ------------ |
-| Gen 1      | 266,112 – 268,127 | 2013-10-26 02:24:32    | `190afc85`   |
-| Gen 2      | 933,408 – 935,423 | 2026-01-22 19:31:22    | `1701fca1`   |
-
+| Generation | Block Range | First Block Date (UTC) | `bits` Value | Froggies |
+|------------|-------------|------------------------|--------------|------------|
+| Gen 1 | 266,112 – 268,127 | 2013-10-26 02:24:32 | `190afc85` | 2016 |
+| Gen 2 | 933,408 – 935,423 | 2026-01-22 19:31:22 | `1701fca1` | 2016 |
 Each qualifying difficulty period contains exactly **2,016 blocks**:
 
 * Gen 1: 2,016 Froggies
