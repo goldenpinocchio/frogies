@@ -34,7 +34,7 @@ Traits are generated directly from the assigned Bitcoin block hash.
 For each Froggie:
 
 1. The block hash is divided into deterministic roll values.
-2. Each roll is mapped to predefined rarity ranges.
+2. Each roll is mapped to rarity ranges.
 3. The resulting values determine the Froggie's attributes.
 
 Trait categories include:
