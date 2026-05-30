@@ -58,4 +58,4 @@ Trait counts are pulled from Bitcoin block hashes. Each hash is sliced into dete
 
 ## Notes
 - Supply target: 4,032
-- Traits are deterministic and driven by Bitcoin block data`
+- Traits are deterministic and driven by Bitcoin block data
