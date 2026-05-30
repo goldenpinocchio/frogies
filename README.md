@@ -73,6 +73,17 @@ Bitcoin block hashes are already represented as 64-character hexadecimal strings
 00000000000000000001dbe44ff50d592964c9414af0f08b3d3654e806983d15
 ```
 
+### Example
+
+```text
+0001dbe4 → Body Color
+4ff50d59 → Eyes
+2964c941 → Mouth / Expression
+4af0f08b → Headgear / Props
+3d3654e8 → Swamp Accessory
+06983d15 → Background / Aura
+```
+
 The hash is divided into eight deterministic 8-character chunks:
 
 ```text
@@ -87,17 +98,6 @@ Each chunk is a hexadecimal value using the character set:
 ```
 
 The chunks are converted into integers and used as deterministic trait rolls.
-
-### Example
-
-```text
-0001dbe4 → Body Color
-4ff50d59 → Eyes
-2964c941 → Mouth / Expression
-4af0f08b → Headgear / Props
-3d3654e8 → Swamp Accessory
-06983d15 → Background / Aura
-```
 
 Each resulting number is mapped to a predefined rarity range within its trait category, producing the final Froggie.
 
